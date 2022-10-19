@@ -1,0 +1,645 @@
+
+<html>
+	<head>
+		 <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+		 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+		 <title>Quiz By Anand kumar</title>
+		 <style type="text/css">
+			
+			 
+			 /* Main page style */
+			 .quizbody
+			 {    
+			 position:absolute;
+			 top:50%;
+			 left:50%;
+			 transform:translate(-50%,-50%);
+			 height:80%;
+			 width:80%;
+			 text-align:center;
+			 border: 1px solid black;
+			 background:#ddd;               
+			 }
+		
+			 .qsb{
+			 position:absolute;
+			 top:0%;
+			 left:50%;
+			 transform:translate(-50%,-50%);
+			 color:white;
+			 padding:8px 15px 8px 15px; 
+			 font-size:23px;  
+			 font-weight:bolder;   
+			 border-radius:5px; 
+			 border:1px solid blue;
+			 outline:none;   
+			 background:gray;        
+			 }
+			 .opn{
+			 position:absolute;
+			 top:75%;
+			 left:50%;
+			 transform:translate(-50%,-75%);
+			 width:100%;
+			 }
+			 /* Question box style */
+			 .Questions
+			 {    
+			 position:absolute;
+			 top:25%;
+			 left:50%;
+			 transform:translate(-50%,-25%);
+			 width:80%;
+			 height:auto;
+			 border-radius:50px;    
+			 border: 0px solid red;   
+			 outline: none;
+			 background:none; 
+			 font-size:23px;
+			 font-weight:bolder;
+			 padding:5px 20px 5px 20px;
+			 
+			 }
+		
+			 
+			 /* All 4 Options style of Question */
+			 .Options1,.Options2,.Options3,.Options4
+			 {
+			 min-width:250px;
+			 max-width:40%;
+			 background:gray;  
+			 border: 1px solid gray;
+			 border-radius:50px;
+			 margin:10;
+			 color:white;
+			 font-size:22px;
+			 padding:5px 8px 5px 8px;
+			 outline:1px solid black;
+			 }       
+
+			 
+		 </style>
+	</head>
+<body>					
+		<!--- Main question page --->
+   <div>
+	    <div class="quizbody">
+		    
+		    <button class="qsb"id="qstcount"></button>
+		           
+			    <!--- Question box--->      
+			    <button class="Questions"id="Q"></button>    
+			    <div class="opn">
+			    <!-- 4-options box---> 			            
+			    <button class="Options1" id="Opn1" onclick="check(0)"> </button>
+			    <button class="Options2" id="Opn2" onclick="check(1)"> </button>        
+			    <br>
+			    <button class="Options3" id="Opn3" onclick="check(2)"> </button>
+			    <button class="Options4" id="Opn4" onclick="check(3)"> </button>	 
+			</div>	  
+		</div>
+	</div>
+
+<script type="text/javascript">
+var question= document.getElementById("Q");
+var opn1= document.getElementById("Opn1");
+var opn2= document.getElementById("Opn2");
+var opn3= document.getElementById("Opn3");
+var opn4= document.getElementById("Opn4");
+var qstcount=document.getElementById("qstcount");
+var i=0;
+
+
+    //for Question Answer and Option
+    // total 95 Question
+    var Question = [
+   
+    "The term ‘Computer’ is derived from...",
+    
+    "Who is the inventor of “Difference Engine”?",
+    
+    "Who is the father of Computer?",
+    
+    "The first computers were programmed using",
+    
+    "You organize files by storing them in",
+    
+    "Which device is required for the Internet connection?",
+    
+    "ALU is",
+    
+    "IBM 1401 is",
+    
+    "Which crop is sown on the largest area in India?",
+    
+    "Who is known as \"The Saint of Gutters\"?",
+    
+    "The capital of Uttarakhand is _______________?",
+    
+    "In which state has the largest area?",
+    
+    "Geet Govind is a famous creation of _______?",
+    
+    "In which year did the Cabinet Mission arrived in India?",
+    
+    "Which state has the largest population?",
+    
+    "In which state is the Elephant Falls located?",
+    
+    "Where is the pen-drive put in a computer?",
+    
+    "PARAM is an example of?",
+    
+    "Which of the following is/are characteristics of Computer?",
+    
+    "Which language is used for Artificial Intelligence (AI)?",
+    
+    "The chip used in computers, is made of ______?",
+    
+    "Fourth Generation computers were based on _______?",
+    
+    "The main circuit-board of the system unit is _______?",
+    
+    "ALU and Control Unit have special purpose locations called?",
+    
+    "External Bus is also referred as _________?",
+    
+    "Interrupts that are initiated by an instruction are_______?",
+    
+    "A parallel port is most often used by ________?",
+    
+    "Which of the following is not a hardware?",
+    
+    "The refresh rate of monitor is measured in _______?",
+    
+    "Where would you find the letters \"QWERTY\"?",
+    
+    "A nibble is equal to _______?",
+    
+    "The term â€˜giga byteâ€™ equals to ________?",
+    
+    "A byte is a collection of _______?",
+    
+    "CPU performs read/write operations at any point in a time?",
+    
+    "Which of the following is the smallest measure of storage?",
+    
+    "Kilobyte equals to how many bytes?",
+    
+    "Which of the following is System Software?",
+    
+    "The only language which the computer understands is ______?",
+    
+    "Line Printers that print one line at a time are _________?",
+    
+    "Components that provide internal storage to the CPU are ______?",
+    
+    "Which of the following is non-volatile storage?",
+    
+    "A non-erasable disk that stores digitized audio information is ?",
+    
+    "Which of the following is not a bitwise operator?",
+    
+    "Q, The value of base in a decimal number system is _____?",
+    
+    "What do you call a a specific instruction designed to do a task?",
+    
+    "Which Country has no River?",
+    
+    "Virus is the word of which language?",
+    
+    "Which Country has the most Natural Lakes?",
+    
+    "International Women's Day is celebrated each year on?",
+    
+    "Garba Dance is performed in Hindu Festival?",
+    
+    "Garba Dance originated from_____?",
+    
+    "Which country has large number of nuclear warheads? ",
+    
+    "Which country cricket team won the blind world cup 2018?",
+    
+    "Which two countries are separated by Mac Mohan Line?",
+    
+    "IBM has purchased open source software company Red Hat for?",
+    
+    "SAARC Disaster Management Center was set up in Oct 2006 at?",
+    
+    "Which crop is sown on the largest area in India?",
+    
+    "Which of the following personalities gave \"The Laws of Heredity\"?",
+    
+    "Garampani sanctuary is located at?",
+    
+    "Who is known as \"The Saint of Gutters\"?",
+    
+    "Grand Central Terminal, Park Avenue, New York is the worldâ€™s?",
+    
+    "The capital of Uttarakhand is...?",
+    
+    "In which state has the largest area?",
+    
+    "Geet Govind is a famous creation of ____?",
+    
+    "When did the World Trade Organization come into existence?",
+    
+    "In which year did the Cabinet Mission arrived in India?",
+    
+    "Golf player Vijay Singh belongs to which country?",
+    
+    "Panchayati Raj belongs to...?",
+    
+    "When did the first Afghan war happen?",
+    
+    "Which state has the largest population?",
+    
+    "Whose creations are Harshcharita and KadamBari?",
+    
+    "When the India launched Targeted Public Distribution System?",
+    
+    "When was the war of american independence?",
+    
+    "For Olympic and World tournaments, the basketball court has dimensions",
+    
+    "In which city the India's first-ever national police museum will be established?",
+    
+    "Under which of the following trees, Buddha got enlightment?",
+    
+    "Which of the following is the worldâ€™s largest and deepest ocean?",
+    
+    "World Red Cross and Red Crescent Day are celebrated every year on?",
+    
+    "The literacy rate of India is...?",
+    
+    "In which state is the Elephant Falls located?",
+    
+    "Which Indian state has the least literacy rate?",
+    
+    "When was SAARC formed?",
+    
+    "Is the judiciary of the Guwahati High Court?",
+    
+    "Which of the following is not a member of the European Union?",
+    
+    "Indiaâ€™s largest petrochemical complex is located at?",
+    
+    "Where is the headquarters of ASEAN located?",
+    
+    "Which space agency sends 104 satellites in a single mission in 2017?",
+    
+    "When cycling federation of India was established?",
+    
+    "During World War II, when did Germany attack France?",
+    
+    "The first cricket club of India was established?",
+    
+    "Which of the following was the author of Economist?",
+    
+    "When India national football team was established?",
+    
+    "Who was the first speaker of Lok Sabha?",
+    
+    "What causes filariasis?",
+    "\0"
+    ];
+
+    
+    var opn = [
+    "Latin", "German","French","Arabic",
+    
+    "Allen Turing","Charles Babbage","Simur Cray","Augusta Adaming",    
+    
+    "Allen Turing","Charles Babbage","Simur Cray","Augusta Adaming",                                                       
+    
+    "assembly language","machine language","source code","object code",
+    
+    "archives","folders","indexes","lists",
+    
+    "Joystick","Modem","CD Drive","NIC Card",
+    
+    "Arithmetic Logic Unit","Array Logic Unit","Application Logic Unit","None of above",
+    
+    "First Generation Computer","Second Generation Computer","Third Generation Computer","Fourth Generation Computer",
+    
+    "Rice", "Wheat", "Sugarcane", "Maize",
+    
+    "Baba Amte", "Mother Teresa", "Anna Hazare", "None of these",
+    
+    "Masoorie", "Dehra Dun", "Nainital", "None of these",
+    
+    "Maharashtra", "Madhya Pradesh", "Uttar Pradesh", "Rajasthan",
+    
+    "Bana Bhatt", "Kalidas", "Jayadev", "Bharat Muni",
+    
+    "1942", "1943", "1945", "1946",
+    
+    "Uttar Pradesh", "Maharastra", "Bihar", "Andra Pradesh",
+    
+    "Mizoram", "Orissa", "Manipur", "Meghalaya",
+    
+    "Floppy drive", "USB port", "Hard-disk", "DVD drive",
+    
+    "Super computer", "Laptop", "PDA", "PC",
+    
+    "Diligence", "Versatility", "Reliability", "All of the Above",
+    
+    "FORTRAN", "COBOL", "C ", "PROLOG",
+    
+    "Silicon", "Iron Oxide", "Chromium", "Copper",
+    
+    "IC", "Vacuum tube", "Transistor", "Microprocessor",
+    
+    "RAM", "Mother Board", "Hard disk", "Socket",
+    
+    "Registers", "Mother Board", "Sockets", "RAM",
+    
+    "System Bus", "Memory Bus", "Front-Side Bus", "Expansive Bus",
+    
+    "internal", "external", "software", "hardware",
+    
+    "Scanner", "Printer", "Keyboard", "Mouse",
+    
+    "Processor", "Printer", "Mouse", "Java",
+    
+    "byte", "Second", "Hertz", "Frequency",
+    
+    "Joy Stick", "Light Pen", "Keyboard", "Light pen",
+    
+    "4 bits", "8 bits", "16 bits", "32 bits",
+    
+    "1024 byte", "1024 KB", "1024 GB", "1024 MB",
+    
+    "4 bits", "12 bits", "6 bits", "8 bits",
+    
+    "PROM", "EPROM", "RAM", "ROM",
+    
+    "KB", "MB", "TB", "Byte",
+    
+    "1000", "1064", "1024", "512",
+    
+    "WhatsApp", "Microsoft word", "Microsoft Excel", "Windows 7",
+    
+    "Assembly language", "Binary language", "BASIC", "C Language",
+    
+    "Laser Printers", "Inkjet Printers", "Drum Printers", "Chain Printers",
+    
+    "Registers", "Program Counters", "Controllers", "Internal chips",
+    
+    "Backup", "Secondary", "Primary", "Cache",
+    
+    "CD", "CD-ROM", "DVD-R", "DVD_RW",
+    
+    "|", "^", ".", "<<",
+    
+    "8", "2", "10", "16",
+    
+    "Command", "Process", "Task", "Instruction",
+    
+    "Qatar","UAE","JORDAN","Saudi Arabia",
+    
+    "English","Latin","Greek","None of These",
+    
+    "Finland","Canada","China","None of these",
+    
+    "12 March","16 March","6 March","8 March",
+    
+    "Diwali","Holi","Navartri","Raksha Bandhan",
+    
+    "Punjab","Gujrat","Ahmedabad","Kolkata",
+    
+    "Russia","America","France","China",
+    
+    "Pakistan","India","Afghanistan","Australia",
+    
+    "India and China","India and Nepal","India and Bangladesh","none of these",
+    
+    "$24 billion","$34 billion ","$44 billion","$51 billion",
+    
+    "Kabul","Khatmando","New Delhi","Islamabad",
+    
+    "Rice","Wheat","Sugarcane","Maize",
+    
+    "Robert Hook","G.J. Mendel","Charles Darwin","William Harvey",
+    
+    "Junagarh, Gujarat","Diphu, Assam","Kohima, Nagaland","Gangtok, Sikkim",
+    
+    "Baba Amte","Mother Teresa","Anna Hazare","None of these",
+    
+    "largest railway station","highest railway station","longest railway station","None of the above",
+    
+    "Masoorie","Dehra Dun","Nainital","None of these",
+    
+    "Maharashtra","Madhya Pradesh","Uttar Pradesh","Rajasthan",
+    
+    "Bana Bhatt","Kalidas","Jayadev","Bharat Muni",
+    
+    "1992","B 1993","1994","1995",
+    
+    "1942","1943","1945","1946",
+    
+    "USA","Fiji","India","UK",
+    
+    "Residual list","Concurrent list","State list","Union list",
+    
+    "1839","1843","1833","1848",
+    
+    "Uttar Pradesh","Maharastra","Bihar","D, Andra Pradesh",
+    
+    "Kalhan","Panini","Bana Bhatta","Patanjali",
+    
+    "1995","1996","1997","1998",
+    
+    "1770","1772","1774","1776",
+    
+    "26 m x 14 m","28 m x 15 m","27 m x 16 m","28 m x 16 m",
+    
+    "Chennai","Delhi","Nagpur","Kolkata",
+    
+    "Ficus benghalensis","Ficus religiosa","Ficus microcarpa","Ficus elastica",
+    
+    "Arctic","Atlantic","Pacific","Indian",
+    
+    "May 8","May 18","June 8","June 18",
+    
+    "57.86%","61.34%","63.98%","65.38%",
+    
+    "Mizoram","Orissa","Manipur","Meghalaya",
+    
+    "Bihar","Rajasthan","Arunachal Pradesh","Orissa",
+    
+    "1982","1984","1985","1986",
+    
+    "Nagaland","Arunachal Pradesh","Assam","All of the above",
+    
+    "Greece","Finland","Norway","United Kingdom",
+    
+    "Gujarat","Maharastra","Rajasthan","Assam Hide",
+    
+    "Male","Kathmandu","Jakarta","Kuala Lumpur",
+    
+    "ISRO","NASA","Russian Agency","China space Agency",
+    
+    "1946","1846","1947","1952",
+    
+    "1940","1941","1942","1943",
+    
+    "1792 In Calcutta","1793 in Delhi","1892 in Calcutta","1992 in Delhi",
+    
+    "Kalhan","Visakhadatta","Bana Bhatta","Chanakya",
+    
+    "1937","1938","1940","1952",
+    
+    "K.M. Munshi","(C)(D) Deshmukh","G.V. Mavalankar","H.J. Kania",
+    
+    "Bacteria","Mosquito","Protozoa","Virus"
+  
+    ];         
+
+    var answer = [
+        "Latin","Charles Babbage","Charles Babbage",
+        
+        "machine language","folders","Modem","Arithmetic Logic Unit",
+        
+        "Second Generation Computer","Rice","Mother Teresa",
+        
+        "Dehra Dun","Rajasthan","Jayadev","1946",
+        
+        "Uttar Pradesh","Meghalaya","USB port",
+        
+        "Super computer","All of the Above","PROLOG",
+        
+        "Silicon","Microprocessor","Mother Board",
+        
+        "Registers","Expansive Bus",
+        
+        "software","Printer","Java","Hertz",
+        
+        "Joy Stick","32 bits","1024 KB","8 bits",
+        
+        "RAM","Byte","1064","Microsoft Excel","Assembly language",
+        
+        "Inkjet Printers","Registers","Primary","DVD-R",
+        
+        "|","16","Process","UAE","None of These",
+        
+        "China","16 March","Diwali","Gujrat","Russia",
+        
+        "India","India and Bangladesh","$24 billion",
+        
+        "Khatmando","Wheat","G.J. Mendel","Junagarh, Gujarat",
+        
+        "Mother Teresa","None of the Above","Nainital",
+        
+        "Rajasthan","Bharat Muni","1993","1942","USA",
+        
+        "Concurrent list","1833","Andra Pradesh","Panini",
+        
+        "1996","1772","27 m x 16 m","Chennai","Ficus elastica",
+        
+        "Indian","May 8","63.98%","Meghalaya","Arunachal Pradesh",
+        
+        "1982","Assam","Greece","Gujarat","Male","ISRO",
+        
+        "1952","1940","1892 in Calcutta","Bana Bhatta",
+       
+    ];
+   display();
+ function display(){
+ qstcount.innerHTML=i+1+"/"+Question.length;
+ question.innerHTML="Q."+(i+1)+ Question[i];
+ Opn1.innerHTML = 'A.  '+opn[i*4];
+ Opn2.innerHTML = 'B.  '+opn[i*4+1];
+ Opn3.innerHTML = 'C.  '+opn[i*4+2];
+ Opn4.innerHTML = 'D.  '+opn[i*4+3];
+ }
+ 
+ function check(option)
+ {    
+    if(option==0){
+		 if(opn[i*4+0]==answer[i]){
+		 Opn1.style="background:green;";
+	     }
+	     else
+	     {
+		     Opn1.style="background:red;";
+		     if(opn[i*4+1]==answer[i]){Opn2.style="background:green;";}
+		     if(opn[i*4+2]==answer[i]){Opn3.style="background:green;";}
+		     if(opn[i*4+3]==answer[i]){Opn4.style="background:green";}
+	     }
+	 } 
+	else if(option==1){
+	 if(opn[i*4+1]==answer[i]){
+	 Opn2.style="background:green;";
+		 }
+		 else
+		 {
+		 Opn2.style="background:red;";
+		 if(opn[i*4+2]==answer[i]){Opn3.style="background:green;";}
+		 if(opn[i*4+0]==answer[i]){Opn1.style="background:green;";}
+		 if(opn[i*4+3]==answer[i]){Opn4.style="background:green;";}
+		 
+		 }
+	 }
+	 
+	else if(option==2){
+	if(opn[i*4+2]==answer[i]){
+	 Opn3.style="background:green;";
+		 }
+		 else
+		 {
+		 Opn3.style="background:red;";
+		 if(opn[i*4+1]==answer[i]){Opn2.style="background:green;";}
+		 if(opn[i*4+0]==answer[i]){Opn1.style="background:green;";}
+		 if(opn[i*4+3]==answer[i]){Opn4.style="background:green;";}
+		 
+		 }
+	 }
+   else if(option==3){
+    if(opn[i*4+3]==answer[i]){
+	 Opn4.style="background:green;";
+		 }
+		 else
+		 {
+		 Opn4.style="background:red;";
+		 if(opn[i*4+1]==answer[i]){Opn2.style="background:green;";}
+		 if(opn[i*4+0]==answer[i]){Opn1.style="background:green;";}
+		 if(opn[i*4+2]==answer[i]){Opn3.style="background:green;";}
+		 
+		 }
+	 }
+	 	
+	 
+	 delay();
+ }
+
+function delay() 
+    {   
+      var dtime=0;
+      var id2 = setInterval(function frame2() 
+      {
+         if (dtime == 5) 
+      {                 
+      clearInterval(id2);
+      refresh();               
+      } 
+      else 
+      {
+      dtime++; 
+      }
+      },100);
+       
+        display();
+    }
+    
+function refresh(){
+           Opn1.style="background:gray;";
+	 	   Opn2.style="background:gray;";
+	 	   Opn3.style="background:gray;";
+	 	   Opn4.style="background:gray;";
+	 	   i++;
+	 	   display();
+}
+</script>
+</body>
+</html>
